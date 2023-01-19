@@ -122,6 +122,16 @@ uintptr_t get_module_base(pid_t pid, char* name) {
     for (vma = mm->mmap; vma; vma = vma->vm_next) {
         show_vma_attribute(vma);
         //To be continue......
+	char buf[ARC_PATH_MAX];
+   	char *path_nm = "";
+
+        if (vma->vm_file) {
+            path_nm = file_path(vma->vm_file, buf, ARC_PATH_MAX-1);
+
+            if (!strcmp(kbasename(path_nm), name)) {
+                return vma->vm_start;
+            }
+        }
     }
 
     return 0;
