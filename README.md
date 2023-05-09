@@ -6,3 +6,7 @@ linux kernel read/write process memory
 ## ioctl+phys & bypass pte->present detection
 
 注意：未实现多物理页页读，读取内存过长时会出现错误
+
+## Contact
+QQ: 2500610021
+QQ Group: 524639679
