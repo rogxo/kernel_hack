@@ -20,10 +20,10 @@ int dispatch_close(struct inode *node, struct file *file)
 
 long dispatch_ioctl(struct file* const file, unsigned int const cmd, unsigned long const arg)
 {
-    static COPY_MEMORY cm;
-    static MODULE_BASE mb;
-    static char key[0x100] = {0};
-    static char name[0x100] = {0};
+    COPY_MEMORY cm;
+    MODULE_BASE mb;
+    char key[0x100] = {0};
+    char name[0x100] = {0};
     static bool is_verified = false;
 
     if(cmd == OP_INIT_KEY && !is_verified) {
