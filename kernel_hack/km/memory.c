@@ -296,6 +296,7 @@ bool read_process_memory(
 	if (!task) {
         return false;
     }
+    put_task_struct(task);
 	mm = get_task_mm(task);
     if (!mm) {
         return false;
@@ -328,6 +329,7 @@ bool write_process_memory(
     if (!task) {
         return false;
     }
+    put_task_struct(task);
     mm = get_task_mm(task);
     if (!mm) {
         return false;
